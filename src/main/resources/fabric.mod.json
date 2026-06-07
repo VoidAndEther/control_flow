@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "control-flow",
+	"version": "${version}",
+	"name": "Control Flow",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/control-flow/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"ether.control_flow.ControlFlow"
+		],
+		"client": [
+			"ether.control_flow.client.ControlFlowClient"
+		],
+		"fabric-datagen": [
+			"ether.control_flow.client.ControlFlowDataGenerator"
+		]
+	},
+	"mixins": [
+		"control-flow.mixins.json",
+		{
+			"config": "control-flow.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
