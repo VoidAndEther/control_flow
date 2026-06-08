@@ -28,16 +28,8 @@
       "trigger": "minecraft:recipe_unlocked"
     }
   },
-  "requirements": [
-    [
-      "has_the_recipe",
-      "has_iron_ingot",
-      "has_blue_dye"
-    ]
-  ],
+  "requirements": [["has_the_recipe", "has_iron_ingot", "has_blue_dye"]],
   "rewards": {
-    "recipes": [
-      "control_flow:barrel_drum"
-    ]
+    "recipes": ["control_flow:barrel_drum"]
   }
 }

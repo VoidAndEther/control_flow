@@ -13,24 +13,39 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ControlFlowBlocks {
-    public static BarrelDrumBlock BARREL_DRUM = registerBlockitem("barrel_drum", new BarrelDrumBlock(AbstractBlock.Settings.copy(Blocks.COPPER_BLOCK)));
 
+    public static BarrelDrumBlock BARREL_DRUM = registerBlockitem(
+        "barrel_drum",
+        new BarrelDrumBlock(AbstractBlock.Settings.copy(Blocks.COPPER_BLOCK))
+    );
 
     private static <T extends Block> T registerBlock(String name, T block) {
-        return Registry.register(Registries.BLOCK, Identifier.of(ControlFlow.MOD_ID, name), block);
+        return Registry.register(
+            Registries.BLOCK,
+            Identifier.of(ControlFlow.MOD_ID, name),
+            block
+        );
     }
+
     @SuppressWarnings("SameParameterValue")
     private static <T extends Block> T registerBlockitem(String name, T block) {
-        ControlFlowItems.registerItem(name, new BlockItem(block, new Item.Settings()));
+        ControlFlowItems.registerItem(
+            name,
+            new BlockItem(block, new Item.Settings())
+        );
         return registerBlock(name, block);
     }
 
-    private static void addFunctionalBlockTab(FabricItemGroupEntries fabricItemGroupEntries) {
+    private static void addFunctionalBlockTab(
+        FabricItemGroupEntries fabricItemGroupEntries
+    ) {
         fabricItemGroupEntries.addAfter(Items.BARREL, BARREL_DRUM);
     }
 
     public static void register() {
         ControlFlow.LOGGER.info("Control Flow blocks registering");
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(ControlFlowBlocks::addFunctionalBlockTab);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(
+            ControlFlowBlocks::addFunctionalBlockTab
+        );
     }
 }

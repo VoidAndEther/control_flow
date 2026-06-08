@@ -7,8 +7,13 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ControlFlowItems {
+
     @SuppressWarnings("UnusedReturnValue")
     public static <T extends Item> T registerItem(String name, T item) {
-        return Registry.register(Registries.ITEM, Identifier.of(ControlFlow.MOD_ID, name), item);
+        return Registry.register(
+            Registries.ITEM,
+            Identifier.of(ControlFlow.MOD_ID, name),
+            item
+        );
     }
 }

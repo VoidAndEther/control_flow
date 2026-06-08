@@ -2,14 +2,11 @@
   "required": true,
   "package": "ether.control_flow.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [
-    "BucketItemAccessor",
-    "BucketItemMixin"
-  ],
+  "mixins": ["BucketItemAccessor", "BucketItemMixin"],
   "injectors": {
     "defaultRequire": 1
   },
   "overwrites": {
     "requireAnnotations": true
-	}
+  }
 }

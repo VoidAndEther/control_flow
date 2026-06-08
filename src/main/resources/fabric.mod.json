@@ -1,34 +1,26 @@
 {
-	"schemaVersion": 1,
-	"id": "control_flow",
-	"version": "${version}",
-	"name": "Control Flow",
-	"description": "This mod adds a directional drum barrel block that can be water and lava logged for compact water wheels and cobble generators",
-	"authors": [
-		"Void"
-	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
-	},
-	"license": "CC0-1.0",
-	"icon": "assets/control_flow/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"ether.control_flow.ControlFlow"
-		],
-		"fabric-datagen": [
-			"ether.control_flow.client.ControlFlowDataGenerator"
-		]
-	},
-	"mixins": [
-		"control_flow.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=0.19.3",
-		"minecraft": "~1.21.1",
-		"java": ">=21",
-		"fabric-api": "*"
-	}
+  "schemaVersion": 1,
+  "id": "control_flow",
+  "version": "${version}",
+  "name": "Control Flow",
+  "description": "This mod adds a directional drum barrel block that can be water and lava logged for compact water wheels and cobble generators",
+  "authors": ["Void"],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/control_flow/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["ether.control_flow.ControlFlow"],
+    "fabric-datagen": ["ether.control_flow.client.ControlFlowDataGenerator"]
+  },
+  "mixins": ["control_flow.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
 }
