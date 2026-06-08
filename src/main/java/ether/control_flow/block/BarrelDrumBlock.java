@@ -22,11 +22,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
-
 import java.util.Optional;
-
-
-
 
 public class BarrelDrumBlock extends Block implements FluidDrainable, FluidFillable {
     private static final BooleanProperty LAVALOGGED = ControlFlowProperties.LAVALOGGED;
@@ -107,6 +103,6 @@ public class BarrelDrumBlock extends Block implements FluidDrainable, FluidFilla
     }
 
     public Optional<SoundEvent> getBucketFillSound() {
-        return Fluids.WATER.getBucketFillSound();
+        return Optional.empty();
     }
 }
