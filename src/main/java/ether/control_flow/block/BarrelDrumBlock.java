@@ -86,12 +86,6 @@ public class BarrelDrumBlock
         );
     }
 
-    protected void appendProperties(
-        StateManager.Builder<Block, BlockState> builder
-    ) {
-        builder.add(FACING, WATERLOGGED, LAVALOGGED);
-    }
-
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         Direction direction = ctx.getSide();
         FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
@@ -151,10 +145,7 @@ public class BarrelDrumBlock
         BlockState state,
         Fluid fluid
     ) {
-        return !(
-            state.get(ControlFlowProperties.LAVALOGGED) ||
-            state.get(Properties.WATERLOGGED)
-        );
+        return !(state.get(LAVALOGGED) || state.get(WATERLOGGED));
     }
 
     public boolean tryFillWithFluid(
@@ -163,15 +154,13 @@ public class BarrelDrumBlock
         BlockState state,
         FluidState fluid_state
     ) {
-        boolean filled =
-            state.get(ControlFlowProperties.LAVALOGGED) ||
-            state.get(Properties.WATERLOGGED);
+        boolean filled = state.get(LAVALOGGED) || state.get(WATERLOGGED);
         Fluid fluid = fluid_state.getFluid();
         BooleanProperty property =
             fluid == Fluids.WATER
-                ? Properties.WATERLOGGED
+                ? WATERLOGGED
                 : fluid == Fluids.LAVA
-                    ? ControlFlowProperties.LAVALOGGED
+                    ? LAVALOGGED
                     : null;
         boolean can_fill = !filled && property != null;
         if (can_fill && !world.isClient()) {
@@ -187,10 +176,10 @@ public class BarrelDrumBlock
         BlockPos pos,
         BlockState state
     ) {
-        BooleanProperty property = state.get(Properties.WATERLOGGED)
-            ? Properties.WATERLOGGED
-            : state.get(ControlFlowProperties.LAVALOGGED)
-                ? ControlFlowProperties.LAVALOGGED
+        BooleanProperty property = state.get(WATERLOGGED)
+            ? WATERLOGGED
+            : state.get(LAVALOGGED)
+                ? LAVALOGGED
                 : null;
         if (property != null) {
             world.setBlockState(pos, state.with(property, false), 3);
@@ -198,9 +187,9 @@ public class BarrelDrumBlock
                 world.breakBlock(pos, true);
             }
         }
-        Item bucket = state.get(Properties.WATERLOGGED)
+        Item bucket = state.get(WATERLOGGED)
             ? Items.WATER_BUCKET
-            : state.get(ControlFlowProperties.LAVALOGGED)
+            : state.get(LAVALOGGED)
                 ? Items.LAVA_BUCKET
                 : null;
         return bucket != null ? new ItemStack(bucket) : ItemStack.EMPTY;
@@ -219,5 +208,11 @@ public class BarrelDrumBlock
 
     public Optional<SoundEvent> getBucketFillSound() {
         return Optional.empty();
+    }
+
+    protected void appendProperties(
+        StateManager.Builder<Block, BlockState> builder
+    ) {
+        builder.add(FACING, WATERLOGGED, LAVALOGGED);
     }
 }
