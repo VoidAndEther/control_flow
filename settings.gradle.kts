@@ -14,4 +14,4 @@ pluginManagement {
 }
 
 // Should match your modid
-rootProject.name = "control-flow"
+rootProject.name = "control_flow"

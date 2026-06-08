@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "control_flow:block/barrel_drum",
+      "x": 180
+    },
+    "facing=up": {
+      "model": "control_flow:block/barrel_drum"
+    },
+    "facing=west": {
+      "model": "control_flow:block/barrel_drum",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east": {
+      "model": "control_flow:block/barrel_drum",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "control_flow:block/barrel_drum",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "control_flow:block/barrel_drum",
+      "x": 270
+    }
+  }
+}
